@@ -1,0 +1,15 @@
+.custom-toast {
+    background-color: #1c4440 !important;
+    /* Change this to your desired color */
+    color: white !important;
+    /* Text color */
+    border-radius: 8px;
+    /* Optional: Add rounded corners */
+    padding: 16px;
+    /* Optional: Add padding */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Optional: Add shadow */
+    top: 390px !important;
+    /* Adjust distance from the top */
+    right: 720px !important;
+}
