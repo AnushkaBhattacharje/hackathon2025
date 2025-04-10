@@ -39,6 +39,7 @@ import HomePage from './pages/HomePage';
 import CropSelection from './pages/CropSelection';
 import EquipmentPage from './pages/EquipmentPage';
 import CartPage from './pages/CartPage';
+import CropAdvisoryWheat from './pages/CropAdvisoryWheat';
 
 const App = () => (
   <Router>
@@ -47,6 +48,7 @@ const App = () => (
       <Route path="/crops" element={<CropSelection />} />
       <Route path="/equipment" element={<EquipmentPage />} />
       <Route path="/cart" element={<CartPage />} />
+      <Route path="/advisory" element={<CropAdvisoryWheat/>}/>
     </Routes>
   </Router>
 );

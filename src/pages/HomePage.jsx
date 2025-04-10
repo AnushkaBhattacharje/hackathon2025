@@ -8,7 +8,7 @@ import "./notification.css";
 const cardsData = [
   { label: "Buy AgriProducts", link: "./crops" },
   { label: "Rent Or Buy", link: "./cart" },
-  { label: "Know Your Crop", link: "./equipment" },
+  { label: "Know Your Crop", link: "./advisory" },
 ];
 
 const HomePage = () => {
@@ -52,13 +52,13 @@ const HomePage = () => {
   return (
     <>
       <ToastContainer />
-      <Box height={700} width="100%">
+      <Box height={500} width="100%">
         <Box
           sx={{
             textAlign: "center",
             padding: 4,
             backgroundColor: "#F3F0E9",
-            height: "500px",
+            height: "350px",
           }}
         >
           <Box
@@ -70,7 +70,7 @@ const HomePage = () => {
               src="../../public/image.png"
               alt="Background"
               style={{
-                width: "300px",
+                width: "250px",
                 height: "90px",
                 display: "block",
               }}
@@ -93,7 +93,7 @@ const HomePage = () => {
               }}
             />
           </Box>
-          <Typography level="h1" sx={{ color: "#1c4440", mt: 15 }}>
+          <Typography level="h1" sx={{ color: "#1c4440", mt: 8 }}>
             Your complete platform for agri purchase, farming guidance, and
             equipment rental
           </Typography>
@@ -126,7 +126,7 @@ const HomePage = () => {
         {cardsData.map((card, idx) => (
           <Card
             key={idx}
-            sx={{ width: 350, textAlign: "center", mb: 4, mt: -9 }}
+            sx={{ width: 320, textAlign: "center", mb: 4, mt: -2 }}
           >
             <CardContent>
               <img
@@ -134,7 +134,7 @@ const HomePage = () => {
                 alt={`Image ${idx + 1}`}
                 style={{
                   width: "300px",
-                  height: "350px",
+                  height: "300px",
                   margin: "0 auto",
                   marginBottom: "16px",
                 }}

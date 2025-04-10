@@ -107,7 +107,7 @@ const CropSelection = () => (
           Rent Machine
         </Link>
         <Link
-          to="/equipment"
+          to="/advisory"
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
