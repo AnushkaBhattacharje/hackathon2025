@@ -78,7 +78,7 @@ const CropAdvisoryWheat = () => {
 
         <Box sx={{ display: "flex", gap: 4 }}>
           <Link
-            to="/"
+            to="/home"
             style={{
               color: "#FFFFFF",
               textDecoration: "none",
@@ -89,7 +89,7 @@ const CropAdvisoryWheat = () => {
             Home
           </Link>
           <Link
-            to="/crops"
+            to="/home/crops"
             style={{
               color: "#FFFFFF",
               textDecoration: "none",
@@ -100,7 +100,7 @@ const CropAdvisoryWheat = () => {
             Buy Products
           </Link>
           <Link
-            to="/cart"
+            to="/home/cart"
             style={{
               color: "#FFFFFF",
               textDecoration: "none",
@@ -111,7 +111,7 @@ const CropAdvisoryWheat = () => {
             Rent Machine
           </Link>
           <Link
-            to="/advisory"
+            to="/home/advisory"
             style={{
               color: "#FFFFFF",
               textDecoration: "none",

@@ -157,7 +157,7 @@ const HomePage = () => {
           <Button
             size="lg"
             component={Link}
-            to="/crops"
+            to="/home/crops"
             sx={{
               mt: 4,
               backgroundColor: "#1c4440",

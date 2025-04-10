@@ -74,7 +74,7 @@ const CropSelection = () => (
       {/* Navigation Links */}
       <Box sx={{ display: "flex", gap: 4 }}>
         <Link
-          to="/"
+          to="/home"
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
@@ -85,7 +85,7 @@ const CropSelection = () => (
           Home
         </Link>
         <Link
-          to="/crops"
+          to="/home/crops"
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
@@ -96,7 +96,7 @@ const CropSelection = () => (
           Buy Products
         </Link>
         <Link
-          to="/cart"
+          to="/home/cart"
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
@@ -107,7 +107,7 @@ const CropSelection = () => (
           Rent Machine
         </Link>
         <Link
-          to="/advisory"
+          to="/home/advisory"
           style={{
             color: "#FFFFFF",
             textDecoration: "none",

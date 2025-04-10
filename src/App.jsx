@@ -33,25 +33,26 @@
 // }
 
 // export default App
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import CropSelection from './pages/CropSelection';
-import EquipmentPage from './pages/EquipmentPage';
-import CartPage from './pages/CartPage';
-import CropAdvisoryWheat from './pages/CropAdvisoryWheat';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CropSelection from "./pages/CropSelection";
+import EquipmentPage from "./pages/EquipmentPage";
+import CartPage from "./pages/CartPage";
+import CropAdvisoryWheat from "./pages/CropAdvisoryWheat";
+import DistributorPage from "./pages/Distributor";
 
 const App = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/crops" element={<CropSelection />} />
-      <Route path="/equipment" element={<EquipmentPage />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/advisory" element={<CropAdvisoryWheat/>}/>
+      <Route path="/" element={<DistributorPage />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/home/crops" element={<CropSelection />} />
+      <Route path="/home/equipment" element={<EquipmentPage />} />
+      <Route path="/home/cart" element={<CartPage />} />
+      <Route path="/home/advisory" element={<CropAdvisoryWheat />} />
     </Routes>
   </Router>
 );
 
 export default App;
-
