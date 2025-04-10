@@ -132,7 +132,7 @@ const HomePage = () => {
               }}
             />
             <Input
-              placeholder="Your location"
+              placeholder="Gurugram"
               startDecorator={
                 <Button
                   variant="soft"
