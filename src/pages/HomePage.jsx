@@ -2,28 +2,34 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Typography, Box, Card, CardContent, Input } from "@mui/joy";
 import { LocationOn } from "@mui/icons-material";
-import { ToastContainer, toast, cssTransition } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "./notification.css";
 
-const buttonLabels = ["Buy AgriProducts", "Rent Or Buy", "Know Your Crop"];
+const cardsData = [
+  { label: "Buy AgriProducts", link: "./crops" },
+  { label: "Rent Or Buy", link: "./cart" },
+  { label: "Know Your Crop", link: "./equipment" },
+];
 
 const HomePage = () => {
   const [location, setLocation] = useState("");
-  useEffect(() => {
-    // Show the notification when the component mounts
-    toast.info(
-      "🌾 Last time you bought Wheat for ₹100. 🎉 Now we have a special discount for you at just ₹20! 🤑 Don't miss out! ✨",
-      {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        className: "custom-toast",
-      }
-    );
-  }, []);
+
+  // useEffect(() => {
+  //   // Show the notification when the component mounts
+  //   toast.info(
+  //     "🌾 Last time you bought Wheat for ₹100. 🎉 Now we have a special discount for you at just ₹20! 🤑 Don't miss out! ✨",
+  //     {
+  //       position: "top-right",
+  //       autoClose: 5000,
+  //       hideProgressBar: true,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       className: "custom-toast",
+  //     }
+  //   );
+  // }, []);
+
   const fetchLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -34,7 +40,7 @@ const HomePage = () => {
           );
           toast.success("📍 Location fetched successfully!");
         },
-        (error) => {
+        () => {
           toast.error("❌ Unable to fetch location. Please allow access.");
         }
       );
@@ -117,15 +123,15 @@ const HomePage = () => {
           height: "450px",
         }}
       >
-        {[1, 2, 3].map((idx) => (
+        {cardsData.map((card, idx) => (
           <Card
             key={idx}
             sx={{ width: 350, textAlign: "center", mb: 4, mt: -9 }}
           >
             <CardContent>
               <img
-                src={`../../public/image${idx}.png`}
-                alt={`Image ${idx}`}
+                src={`../../public/image${idx + 1}.png`}
+                alt={`Image ${idx + 1}`}
                 style={{
                   width: "300px",
                   height: "350px",
@@ -135,7 +141,7 @@ const HomePage = () => {
               />
               <Button
                 component={Link}
-                to="./cart"
+                to={card.link}
                 sx={{
                   mt: 2,
                   backgroundColor: "#1c4440",
@@ -145,7 +151,7 @@ const HomePage = () => {
                   },
                 }}
               >
-                {buttonLabels[idx - 1]}
+                {card.label}
               </Button>
             </CardContent>
           </Card>

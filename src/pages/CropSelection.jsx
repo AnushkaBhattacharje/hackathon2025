@@ -85,7 +85,7 @@ const CropSelection = () => (
           Home
         </Link>
         <Link
-          to="/buy"
+          to="/crops"
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
@@ -96,7 +96,7 @@ const CropSelection = () => (
           Buy Products
         </Link>
         <Link
-          to="/rent"
+          to="/cart"
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
@@ -107,7 +107,7 @@ const CropSelection = () => (
           Rent Machine
         </Link>
         <Link
-          to="/know-your-crops"
+          to="/equipment"
           style={{
             color: "#FFFFFF",
             textDecoration: "none",
