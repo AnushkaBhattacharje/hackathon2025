@@ -9,6 +9,14 @@ const DistributorPage = () => {
   const [location, setLocation] = useState('Khandwa (East Nimar), MADHYA PRADESH');
   const [category, setCategory] = useState('');
   const [productType, setProductType] = useState('');
+  const data = [
+    { name: 'A.P.Agro Ajency', tag: 'Seeds' },
+    { name: 'B.F.Agro Traders', tag: 'Fertilizers' },
+    { name: 'C.H.Agro Supply', tag: 'Machinery' },
+    { name: 'D.X.Agro Partners', tag: 'Pesticides' },
+    { name: 'C.H.Agro Supply', tag: 'Machinery' },
+    { name: 'D.X.Agro Partners', tag: 'Pesticides' },
+  ];
   return (
     <Box sx={{ padding: 2, maxWidth: '800px', margin: '0 auto' }}>
       {/* Header with back button and help */}
@@ -124,36 +132,41 @@ const DistributorPage = () => {
         776 Distributor Found
       </Typography>
       {/* Distributor Card */}
-      <Box
-        sx={{
-          backgroundColor: '#fff',
-          padding: 2,
-          borderRadius: '12px',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}
-      >
-        <Box>
-          <Typography level="h5" sx={{ fontWeight: 'bold', mb: 1 }}>
-            A.P.Agro Ajency
-          </Typography>
-          <Box
-            sx={{
-              backgroundColor: '#FFE4E1',
-              padding: '4px 12px',
-              borderRadius: '4px',
-              display: 'inline-block'
-            }}
-          >
-            <Typography>Seeds</Typography>
+      <Box sx={{ display: 'grid', gap: 2 }}>
+      {data.map((item, index) => (
+        <Box
+          key={index}
+          sx={{
+            backgroundColor: '#fff',
+            padding: 2,
+            borderRadius: '12px',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Box>
+            <Typography level="h5" sx={{ fontWeight: 'bold', mb: 1 }}>
+              {item.name}
+            </Typography>
+            <Box
+              sx={{
+                backgroundColor: '#FFE4E1',
+                padding: '4px 12px',
+                borderRadius: '4px',
+                display: 'inline-block',
+              }}
+            >
+              <Typography>{item.tag}</Typography>
+            </Box>
           </Box>
+          <IconButton sx={{ backgroundColor: '#F5F5F5' }}>
+            <PhoneIcon />
+          </IconButton>
         </Box>
-        <IconButton sx={{ backgroundColor: '#F5F5F5' }}>
-          <PhoneIcon />
-        </IconButton>
-      </Box>
+      ))}
+    </Box>
     </Box>
   );
 };
