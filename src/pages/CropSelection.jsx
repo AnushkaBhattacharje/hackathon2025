@@ -267,7 +267,7 @@ const CropSelection = () => (
               {/* View Details Button */}
               <Button
                 component="a"
-                href="https://www.amazon.in/Green-World-250-Gms-pack/dp/B0BBWF9G26/ref=sr_1_6?crid=BA7DHWF9FK9H&dib=eyJ2IjoiMSJ9.0kIN_XzuVMrpn_7rSNsp1Uj4Ol2LwjX-QqA613lXDsjliFjK_4xkLAc4se6Z9vecGzRquu8f-z4bkfNrCzOR3rY5rAm147VeQPtJD-0OfIWo-cymwyQwSYEe5XuLoZHhU2oh9pfI7fS-oU4u9FqTXUjiDTTIwFq1liC64K33xos3CwaBLWLw7Xj0I9b2GeraTaVNF7JjiFsfkJsW-GqYyS8Pplb0aHR9votm7prgkrlkJnce7taT9MS6ERLc26ZKdKv0bCQjoT4S5MzVsTn2C4jdpaQRGdX4Z1VfzFYVKCQ.f1O0yaLbQJXhm_S2dHn2Jrap-DVZNGeqc3HgkGwkM9g&dib_tag=se&keywords=wheat%2Bseeds&qid=1744280170&sprefix=wheat%2Bseeds%2Caps%2C253&sr=8-6&th=1"
+                href="https://amzn.to/43P26dQ"
                 target="_blank" // Opens the link in a new tab
                 rel="noopener noreferrer" // Ensures security
                 sx={{
