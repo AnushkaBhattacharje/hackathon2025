@@ -255,7 +255,7 @@ const CropSelection = () => {
               alt="Route Visualization"
               style={{
                 width: "100%",
-                maxWidth: "720px",
+                maxWidth: "780px",
                 height: "620px",
                 objectFit: "cover",
                 borderRadius: "8px",

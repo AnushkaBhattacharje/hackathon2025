@@ -59,6 +59,71 @@ const CropAdvisoryWheat = () => {
   };
   return (
     <>
+      {/* Navigation Bar */}
+      <Box
+        sx={{
+          backgroundColor: "#1C4440",
+          color: "#FFFFFF",
+          padding: 2,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src="../../public/image.png"
+          alt="Logo"
+          style={{ height: "60px", width: "180px", cursor: "pointer" }}
+        />
+
+        <Box sx={{ display: "flex", gap: 4 }}>
+          <Link
+            to="/"
+            style={{
+              color: "#FFFFFF",
+              textDecoration: "none",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            to="/crops"
+            style={{
+              color: "#FFFFFF",
+              textDecoration: "none",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}
+          >
+            Buy Products
+          </Link>
+          <Link
+            to="/cart"
+            style={{
+              color: "#FFFFFF",
+              textDecoration: "none",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}
+          >
+            Rent Machine
+          </Link>
+          <Link
+            to="/advisory"
+            style={{
+              color: "#FFFFFF",
+              textDecoration: "none",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}
+          >
+            Know Your Harvest
+          </Link>
+        </Box>
+      </Box>
+
       <Modal
         open={isPopupOpen}
         onClose={handleClosePopup}
@@ -83,8 +148,8 @@ const CropAdvisoryWheat = () => {
           <Box width={300}>
             <Typography textColor={"#1C4440"}>
               Last time, you visited us for Maize Crop Advisory and rented a 🌟
-              Wheat Dryer 🌟. This time, we’re offering it at ✨ HALF PRICE ✨
-              just for you! Don’t miss this golden opportunity! 💸
+              Wheat Dryer 🌟. This time, we're offering it at ✨ HALF PRICE ✨
+              just for you! Don't miss this golden opportunity! 💸
             </Typography>
           </Box>
           <Button
