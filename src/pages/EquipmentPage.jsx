@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const CropSelection = () => {
+  const position = [51.505, -0.09];
+
   const [formValues, setFormValues] = useState({
     from: "",
     destination: "",
@@ -72,44 +74,44 @@ const CropSelection = () => {
         console.log(destinationCity, "hii");
         const weatherData = response.data;
         const description =
-        weatherData.weather && weatherData.weather[0]?.description;
+          weatherData.weather && weatherData.weather[0]?.description;
 
-      if (description) {
-        if (description.toLowerCase().includes("rain")) {
-          setImageVisible(true);
-          setNotification(
-            <p>
-              🚫 <strong>High chance of rain 🌧️</strong> ({description}) in
-              the truck's destination area. Please take necessary precautions.
-              🚛✨
-            </p>
-          );
-        } else if (description.toLowerCase().includes("clouds")) {
-          setNotification(
-            <p>
-              ☁️ <strong>Cloudy weather</strong> ({description}). Drive safely!
-              🚛
-            </p>
-          );
-          setImageVisible(true);
+        if (description) {
+          if (description.toLowerCase().includes("rain")) {
+            setImageVisible(true);
+            setNotification(
+              <p>
+                🚫 <strong>High chance of rain 🌧️</strong> ({description}) in
+                the truck's destination area. Please take necessary precautions.
+                🚛✨
+              </p>
+            );
+          } else if (description.toLowerCase().includes("clouds")) {
+            setNotification(
+              <p>
+                ☁️ <strong>Cloudy weather</strong> ({description}). Drive
+                safely! 🚛
+              </p>
+            );
+            setImageVisible(true);
+          } else {
+            setNotification(
+              <p>
+                ✅ <strong>Clear weather</strong> ({description}) at the
+                destination. Safe to proceed! 🚛
+              </p>
+            );
+            setImageVisible(true);
+          }
         } else {
           setNotification(
             <p>
-              ✅ <strong>Clear weather</strong> ({description}) at the
-              destination. Safe to proceed! 🚛
+              ⚠️ <strong>Weather data unavailable</strong>. Please check again
+              later. 🚛
             </p>
           );
-          setImageVisible(true);
+          setImageVisible(false);
         }
-      } else {
-        setNotification(
-          <p>
-            ⚠️ <strong>Weather data unavailable</strong>. Please check again
-            later. 🚛
-          </p>
-        );
-        setImageVisible(false);
-      }
       } catch (error) {
         console.error("Error fetching weather data:", error);
         alert("Could not fetch weather data. Please try again.");
@@ -333,24 +335,40 @@ const CropSelection = () => {
           }}
         >
           {imageVisible ? (
-            <img
-              src="../../public/map2.png"
-              alt="Route Visualization"
-              style={{
-                width: "100%",
-                maxWidth: "780px",
-                height: "620px",
-                objectFit: "cover",
+            <Box
+              sx={{
+                width: "auto",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "#FFFFFF",
                 borderRadius: "8px",
+                height: "360px",
+                marginTop: -30,
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               }}
-            />
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1761584.3973232787!2d75.55332905322288!3d30.419244021112675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!3m2!1d28.613929799999998!2d77.2088282!4m5!1s0x39048708163fd03f%3A0x8129a80ebe5076cd!2sManali%2C%20Himachal%20Pradesh!3m2!1d32.2431872!2d77.1891761!5e0!3m2!1sen!2sin!4v1744344489370!5m2!1sen!2sin"
+                width="800"
+                height="620"
+                style={{
+                  border: "0",
+                  borderRadius: "8px",
+                  marginTop: "240px",
+                }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </Box>
           ) : (
             <img
               src="../../public/farteam.png"
               alt="Route Visualization"
               style={{
                 width: "900px",
-                height: "600px",
+                height: "620px",
                 objectFit: "cover",
                 borderRadius: "8px",
               }}
