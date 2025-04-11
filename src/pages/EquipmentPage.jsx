@@ -238,7 +238,7 @@ const CropSelection = () => {
 
         <Box
           sx={{
-            width: "50%",
+            width: "auto",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
