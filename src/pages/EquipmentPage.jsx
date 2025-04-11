@@ -348,19 +348,24 @@ const CropSelection = () => {
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
               }}
             >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1761584.3973232787!2d75.55332905322288!3d30.419244021112675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!3m2!1d28.613929799999998!2d77.2088282!4m5!1s0x39048708163fd03f%3A0x8129a80ebe5076cd!2sManali%2C%20Himachal%20Pradesh!3m2!1d32.2431872!2d77.1891761!5e0!3m2!1sen!2sin!4v1744344489370!5m2!1sen!2sin"
-                width="800"
-                height="620"
-                style={{
-                  border: "0",
-                  borderRadius: "8px",
-                  marginTop: "240px",
-                }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+             <iframe
+  src={
+    ["dimapur", "Dimapur", "DIMAPUR"].includes(formValues.destination)
+      ? "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d7281172.595459684!2d80.17994895385068!3d26.990322171001125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!3m2!1d28.613929799999998!2d77.2088282!4m5!1s0x3745e1f28b41fff3%3A0xdccf69dd5fa3c95!2sDimapur%2C%20Nagaland!3m2!1d25.909140599999997!2d93.72656049999999!5e0!3m2!1sen!2sin!4v1744344919095!5m2!1sen!2sin"
+      : "https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1761584.3973232787!2d75.55332905322288!3d30.419244021112675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!3m2!1d28.613929799999998!2d77.2088282!4m5!1s0x39048708163fd03f%3A0x8129a80ebe5076cd!2sManali%2C%20Himachal%20Pradesh!3m2!1d32.2431872!2d77.1891761!5e0!3m2!1sen!2sin!4v1744344489370!5m2!1sen!2sin"
+  }
+  width="800"
+  height="620"
+  style={{
+    border: "0",
+    borderRadius: "8px",
+    marginTop: "240px",
+  }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
+
             </Box>
           ) : (
             <img
