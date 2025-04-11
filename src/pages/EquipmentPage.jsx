@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography, Button, Input, Select, Option } from "@mui/joy";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const CropSelection = () => {
   const [formValues, setFormValues] = useState({
@@ -17,7 +18,29 @@ const CropSelection = () => {
     setFormValues((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   if (
+  //     formValues.from &&
+  //     formValues.destination &&
+  //     formValues.vehicleType &&
+  //     formValues.materialWeight
+  //   ) {
+  //     setImageVisible(true);
+  //     setNotification(
+  //       <p>
+  //         🚫 <strong>High chance of rain 🌧️</strong> in the truck's destination
+  //         area. Please take necessary precautions. 🚛✨
+  //       </p>
+  //     );
+  //   } else {
+  //     alert("Please fill in all fields before submission.");
+  //     setImageVisible(false);
+  //     setNotification("");
+  //   }
+  // };
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
@@ -26,13 +49,73 @@ const CropSelection = () => {
       formValues.vehicleType &&
       formValues.materialWeight
     ) {
-      setImageVisible(true);
-      setNotification(
-        <p>
-          🚫 <strong>High chance of rain 🌧️</strong> in the truck's destination
-          area. Please take necessary precautions. 🚛✨
-        </p>
-      );
+      try {
+        // Replace with your OpenWeatherMap API key
+        const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+        console.log(import.meta.env.VITE_WEATHER_API_KEY);
+        const destinationCity = formValues.destination;
+
+        // Fetch weather data for the destination
+        console.log(
+          `b1b15e88fa797225412429c1c50c122a1">api.openweathermap.org/data/2.5/forecast?id&appid=19bc350270b0123eb118d9ffd89b917f`
+        );
+
+        const response = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather`,
+          {
+            params: {
+              q: destinationCity,
+              appid: apiKey,
+            },
+          }
+        );
+        console.log(destinationCity, "hii");
+        const weatherData = response.data;
+        const description =
+        weatherData.weather && weatherData.weather[0]?.description;
+
+      if (description) {
+        if (description.toLowerCase().includes("rain")) {
+          setImageVisible(true);
+          setNotification(
+            <p>
+              🚫 <strong>High chance of rain 🌧️</strong> ({description}) in
+              the truck's destination area. Please take necessary precautions.
+              🚛✨
+            </p>
+          );
+        } else if (description.toLowerCase().includes("clouds")) {
+          setNotification(
+            <p>
+              ☁️ <strong>Cloudy weather</strong> ({description}). Drive safely!
+              🚛
+            </p>
+          );
+          setImageVisible(true);
+        } else {
+          setNotification(
+            <p>
+              ✅ <strong>Clear weather</strong> ({description}) at the
+              destination. Safe to proceed! 🚛
+            </p>
+          );
+          setImageVisible(true);
+        }
+      } else {
+        setNotification(
+          <p>
+            ⚠️ <strong>Weather data unavailable</strong>. Please check again
+            later. 🚛
+          </p>
+        );
+        setImageVisible(false);
+      }
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+        alert("Could not fetch weather data. Please try again.");
+        setImageVisible(false);
+        setNotification("");
+      }
     } else {
       alert("Please fill in all fields before submission.");
       setImageVisible(false);
